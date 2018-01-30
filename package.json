@@ -1,0 +1,27 @@
+{
+  "name": "frdb",
+  "version": "1.0.0",
+  "description": "Source for Family Recipe's Database",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danieljbell/frdb.git"
+  },
+  "author": "Daniel Bell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danieljbell/frdb/issues"
+  },
+  "homepage": "https://github.com/danieljbell/frdb#readme",
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
