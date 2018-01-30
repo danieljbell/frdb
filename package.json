@@ -19,7 +19,8 @@
   "homepage": "https://github.com/danieljbell/frdb#readme",
   "dependencies": {
     "concurrently": "^3.5.1",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
     "nodemon": "^1.14.11"
