@@ -6,16 +6,16 @@ block content
   ul.recipe-list
     each recipe in recipes
       li= recipe.name
+        p(style="margin-left: 30px;")= recipe.description
 
-  h2 Add A New Recipe
-  form(action="/create" method="POST")
-    div
-      label(for="name") First Name
-      input(type="text" name="name" id="name")
-    div
-      label(for="description") Description
-      textarea(name="description" id="description")
-    div
-      input(type="submit")
-
-  
+  if user
+    h2 Add A New Recipe
+    form(action="/create" method="POST")
+      div
+        label(for="name") First Name
+        input(type="text" name="name" id="name")
+      div
+        label(for="description") Description
+        textarea(name="description" id="description")
+      div
+        input(type="submit")
