@@ -16,7 +16,7 @@ exports.createRecipe = async (req, res) => {
 
 exports.getRecipes = async (req, res) => {
   const recipes = await Recipe.find();
-  res.render('index', {
+  res.render('login', {
     title: 'Recipes',
     recipes
   });

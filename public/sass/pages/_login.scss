@@ -8,3 +8,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.app-login-container {
+  background-color: transparentize(#fff, 0.25);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(black, 0.4);
+}
