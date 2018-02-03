@@ -6,6 +6,11 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     block header
+      ul
+        li
+          a(href="/logout") Logout
+        li
+          a(href="/add") Add New Recipe
 
     block messages
       if locals.flashes

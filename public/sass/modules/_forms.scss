@@ -1,7 +1,10 @@
 .form--login {
   label {
+    font-family: $heading-font;
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
   }
   input {
     font-size: 1rem;

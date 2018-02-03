@@ -6,16 +6,20 @@ const authController =  require('../controllers/authController');
 const marketingController =  require('../controllers/marketingController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
-if (!router.user) {
-  router.get('/', userController.loginForm);
-} else {
-  router.get('/', catchErrors(recipeController.getRecipes));
-}
+router.get('/', catchErrors(recipeController.getRecipes));
+
+router.get('/recipes', catchErrors(recipeController.getRecipes));
+
+router.get('/add', recipeController.addRecipe);
 
 router.post('/create', recipeController.createRecipe);
 
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
+router.get('/logout', authController.logout);
+
+router.get('/recipe/:slug', catchErrors(recipeController.getRecipeBySlug));
+
 
 router.get('/register', userController.registerForm);
 router.post('/register', 

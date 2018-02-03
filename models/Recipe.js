@@ -14,7 +14,11 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You have to be logged in'
+  }
 });
 
 recipeSchema.pre('save', function(next) {
