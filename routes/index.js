@@ -12,7 +12,8 @@ router.get('/recipes', catchErrors(recipeController.getRecipes));
 
 router.get('/add', recipeController.addRecipe);
 
-router.post('/create', recipeController.createRecipe);
+router.post('/recipe/create', recipeController.createRecipe);
+router.post('/recipe/:recipe_id', recipeController.updateRecipe);
 
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);

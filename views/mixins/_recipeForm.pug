@@ -1,6 +1,15 @@
-mixin recipeForm()
-  form(action="/create" method="POST")
+mixin recipeForm(recipe = {})
+  form(action=`/recipe/${recipe._id || 'create'}` method="POST")
     div.form-group
       label(for="name") Recipe name
-      input(type="name" name="name" id="name")
+      input(type="text" name="name" id="name" value=recipe.name)
+    if recipe.ingredients
+      each ingredient in recipe.ingredients
+        div.form-group
+          label(for="ingredient") Ingredient
+          input(type="text" name="ingredients" id="ingredient" value=ingredient)  
+    else
+      div.form-group
+        label(for="ingredient") Ingredient
+        input(type="text" name="ingredients" id="ingredient" value=ingredient)          
     input(type="submit" value="Add Recipe to Database")

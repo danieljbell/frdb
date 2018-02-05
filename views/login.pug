@@ -1,33 +1,26 @@
-extends layout
+include mixins/_loginForm
 
-block header
+doctype html
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/dist/style.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  body.app-login
+    
+    img(src="/images/app-logo.svg", alt="", class="login-logo")
 
-block content
-
-  if !user
-    body.app-login
-      include mixins/_loginForm
-
-      img(src="/images/app-logo.svg", alt="app-logo" class="login-logo")
-
-      .app-login-container
-        if locals.flashes
+    .app-login-container
+      if locals.flashes
+        .flash-messages
           - const categories = Object.keys(locals.flashes)
           each category in categories
             each message in flashes[category]
               .flash(class=`flash--${category}`)
                 p.flash__text!= message
                 button.flash__remove(onClick="this.parentElement.remove()") &times;
-        
-        +loginForm()(class="form--login")
 
-  if user
-    body.home
-      if recipes
-        ul.recipe-list
-          each recipe in recipes
-            li.recipe--item
-              a(href=`/recipe/${recipe.slug}`) #{recipe.name}
+      +loginForm()(class="form--login")
 
     block scripts
       script(src="/dist/App.bundle.js")

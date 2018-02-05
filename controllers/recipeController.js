@@ -15,10 +15,27 @@ exports.createRecipe = async (req, res) => {
   res.redirect('/');
 }
 
+exports.updateRecipe = async (req, res) => {
+  const recipe = await Recipe.findOneAndUpdate(
+  {
+    _id: req.params.recipe_id
+  },
+  req.body,
+  {
+    new: true,
+    runValidators: true
+  }).exec();
+  req.flash('success', `You successfully updated ${recipe.name}!`);
+  res.redirect(`/recipe/${recipe.slug}`);
+}
+
+
+
 exports.getRecipes = async (req, res) => {
   const recipes = await Recipe.find();
-  res.render('login', {
+  res.render('index', {
     title: 'Recipes',
+    body_class: 'page--recipes-list',
     recipes
   });
 }

@@ -47,6 +47,12 @@ body {
   width: 100%;
   cursor: pointer; }
 
+.app-header {
+  background-color: #222222;
+  color: #fff; }
+  .app-header a {
+    color: #fff; }
+
 .app-login {
   background-image: -o-linear-gradient(305deg, #43C6AC, #db36a4), url(/images/app-login-bg-bw.jpg);
   background-image: linear-gradient(145deg, #43C6AC, #db36a4), url(/images/app-login-bg-bw.jpg);
@@ -62,10 +68,15 @@ body {
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 .login-logo {
-  margin-top: -4rem; }
+  margin-top: -4rem;
+  max-width: 300px; }
 
 .app-login-container {
   background-color: rgba(255, 255, 255, 0.85);
@@ -73,5 +84,9 @@ body {
   border-radius: 10px;
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); }
+
+.page--recipes-list {
+  display: grid;
+  grid-template-columns: 200px 1fr; }
 
 /*# sourceMappingURL=style.css.map*/

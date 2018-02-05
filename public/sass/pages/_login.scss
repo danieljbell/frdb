@@ -7,10 +7,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .login-logo {
   margin-top: -4rem;
+  max-width: 300px;
 }
 
 .app-login-container {

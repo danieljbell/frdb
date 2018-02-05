@@ -1,21 +1,10 @@
 extends layout
 
 block content
-  h1= title
+
+  h1= title 
 
   ul.recipe-list
     each recipe in recipes
-      li= recipe.name
-        p(style="margin-left: 30px;")= recipe.description
-
-  if user
-    h2 Add A New Recipe
-    form(action="/create" method="POST")
-      div
-        label(for="name") First Name
-        input(type="text" name="name" id="name")
-      div
-        label(for="description") Description
-        textarea(name="description" id="description")
-      div
-        input(type="submit")
+      li
+        a(href=`/recipe/${recipe.slug}`) #{recipe.name}
