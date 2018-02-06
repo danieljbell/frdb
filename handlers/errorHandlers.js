@@ -1,3 +1,10 @@
+exports.noAuth = (req, res, next) => {
+  console.log('daniel');
+  next();
+}
+
+
+
 /*
   Catch Errors Handler
 
