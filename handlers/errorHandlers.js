@@ -1,9 +1,4 @@
-exports.noAuth = (req, res, next) => {
-  console.log('daniel');
-  next();
-}
-
-
+const authController =  require('../controllers/authController');
 
 /*
   Catch Errors Handler

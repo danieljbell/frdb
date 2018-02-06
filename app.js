@@ -58,8 +58,6 @@ app.use('/', routes);
 
 app.use(errorHandlers.notFound);
 
-app.use(errorHandlers.noAuth);
-
 app.use(errorHandlers.flashValidationErrors);
 
 if (app.get('env') === 'development') {

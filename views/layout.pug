@@ -5,27 +5,38 @@ html
     link(href="https://fonts.googleapis.com/css?family=Bree+Serif|Dosis" rel="stylesheet")
     link(rel='stylesheet', href='/dist/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
-  body
-    block header
-      ul
-        li
-          a(href="/logout") Logout
-        li
-          a(href="/add") Add New Recipe
+  //- if !user
+  //-   body(class="")
+  //- else
+  body(class=`logged-in ${body_class || ''}`)
 
+
+  block header
+    header.app-header
+      nav
+        ul
+          li
+            a(href="/" class="app-home-link")
+              img(src="/images/app-logo--white.svg", alt="")
+          each item in h.menu
+            li
+              a(href=item.slug class=(currentPath.startsWith(item.slug) ? 'nav-link--active' : '')) #{item.title}
+
+      p(class="has-text-center has-text-small") Made with ❤️ &nbsp;by Daniel
+  
+  main.content
     block messages
-      if locals.flashes
-        .inner
-          .flash-messages
-            - const categories = Object.keys(locals.flashes)
-            each category in categories
-              each message in flashes[category]
-                .flash(class=`flash--${category}`)
-                  p.flash__text!= message
-                  button.flash__remove(onClick="this.parentElement.remove()") &times;
-    
-    .content
-      block content
+    if locals.flashes
+      .inner
+        .flash-messages
+          - const categories = Object.keys(locals.flashes)
+          each category in categories
+            each message in flashes[category]
+              .flash(class=`flash--${category}`)
+                p.flash__text!= message
+                button.flash__remove(onClick="this.parentElement.remove()") &times;
 
-    block scripts
-      script(src="/dist/App.bundle.js")
+    block content
+
+  block scripts
+    script(src="/dist/App.bundle.js")

@@ -6,20 +6,32 @@ const authController =  require('../controllers/authController');
 const marketingController =  require('../controllers/marketingController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
-router.get('/', authController.loginScreen);
+router.get('/', 
+  authController.checkAuth,
+  catchErrors(recipeController.getRecipes)
+);
 
-// router.get('/recipes', catchErrors(recipeController.getRecipes));
+router.get('/recipes',
+  authController.checkAuth,
+  catchErrors(recipeController.getRecipes)
+);
 
-// router.get('/add', recipeController.addRecipe);
+router.get('/recipes/new', 
+  authController.checkAuth,
+  recipeController.addRecipe
+);
 
 // router.post('/recipe/create', recipeController.createRecipe);
-// router.post('/recipe/:recipe_id', recipeController.updateRecipe);
+router.post('/recipes/:recipe_id', recipeController.updateRecipe);
 
 router.get('/login', authController.loginScreen);
-// router.post('/login', authController.login);
-// router.get('/logout', authController.logout);
+router.post('/login', authController.login);
+router.get('/logout', authController.logout);
 
-// router.get('/recipe/:slug', catchErrors(recipeController.getRecipeBySlug));
+router.get('/recipes/:slug', 
+  authController.checkAuth,
+  catchErrors(recipeController.getRecipeBySlug)
+);
 
 
 // router.get('/register', userController.registerForm);

@@ -1,5 +1,5 @@
 mixin recipeForm(recipe = {})
-  form(action=`/recipe/${recipe._id || 'create'}` method="POST")
+  form(action=`/recipes/${recipe._id || 'create'}` method="POST")
     div.form-group
       label(for="name") Recipe name
       input(type="text" name="name" id="name" value=recipe.name)

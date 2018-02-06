@@ -12,6 +12,15 @@ body {
   font-family: "Dosis", Helvetica, Arial, sans-serif;
   color: #555555; }
 
+body.logged-in {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 3rem; }
+  @media screen and (max-width: 600px) {
+    body.logged-in {
+      background-color: green;
+      grid-template-columns: 1fr; } }
+
 .form--login label {
   font-family: "Bree Serif";
   display: block;
@@ -47,11 +56,74 @@ body {
   width: 100%;
   cursor: pointer; }
 
+.content {
+  max-height: 100vh;
+  overflow: scroll; }
+
 .app-header {
   background-color: #222222;
-  color: #fff; }
+  color: #fff;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  @media screen and (max-width: 600px) {
+    .app-header {
+      min-height: auto; } }
   .app-header a {
-    color: #fff; }
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    padding: 1rem;
+    border-bottom: 1px solid #555;
+    position: relative;
+    z-index: 1; }
+    .app-header a:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: -o-linear-gradient(315deg, #F8FFAE, #DB36A4);
+      background-image: linear-gradient(135deg, #F8FFAE, #DB36A4);
+      -webkit-transform: translateX(-100%);
+          -ms-transform: translateX(-100%);
+              transform: translateX(-100%);
+      -webkit-transition: all 200ms ease-in-out;
+      -o-transition: all 200ms ease-in-out;
+      transition: all 200ms ease-in-out; }
+    .app-header a:hover:before {
+      -webkit-transform: translateX(0%);
+          -ms-transform: translateX(0%);
+              transform: translateX(0%); }
+  .app-header ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .app-header p {
+    padding-bottom: 1rem; }
+
+.app-home-link {
+  background-image: -o-linear-gradient(285deg, #F8FFAE, #43C6AC);
+  background-image: linear-gradient(165deg, #F8FFAE, #43C6AC);
+  display: block;
+  padding: 1.5rem; }
+
+.nav-link--active {
+  background-color: #DB36A4; }
 
 .app-login {
   background-image: -o-linear-gradient(305deg, #43C6AC, #db36a4), url(/images/app-login-bg-bw.jpg);
@@ -85,8 +157,10 @@ body {
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); }
 
-.page--recipes-list {
-  display: grid;
-  grid-template-columns: 200px 1fr; }
+.has-text-center {
+  text-align: center; }
+
+.has-text-small {
+  font-size: 0.8rem; }
 
 /*# sourceMappingURL=style.css.map*/

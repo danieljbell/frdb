@@ -26,7 +26,7 @@ exports.updateRecipe = async (req, res) => {
     runValidators: true
   }).exec();
   req.flash('success', `You successfully updated ${recipe.name}!`);
-  res.redirect(`/recipe/${recipe.slug}`);
+  res.redirect(`/recipes/${recipe.slug}`);
 }
 
 
