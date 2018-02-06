@@ -21,7 +21,7 @@ router.get('/recipes/new',
   recipeController.addRecipe
 );
 
-// router.post('/recipe/create', recipeController.createRecipe);
+router.post('/recipes/create', recipeController.createRecipe);
 router.post('/recipes/:recipe_id', recipeController.updateRecipe);
 
 router.get('/login', authController.loginScreen);
