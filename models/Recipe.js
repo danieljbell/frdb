@@ -19,6 +19,10 @@ const recipeSchema = new mongoose.Schema({
     ref: 'User',
     required: 'You have to be logged in'
   },
+  dish_type: {
+    type: String,
+    required: true
+  },
   ingredients: [String]
 });
 
@@ -30,5 +34,13 @@ recipeSchema.pre('save', function(next) {
   this.slug = slug(this.name);
   next();
 });
+
+recipeSchema.statics.getType = function() {
+  return this.aggregate([
+    { $unwind: '$tags' },
+    { $group: { _id: '$tags', count: { $sum: 1 } } },
+    { $sort: { count: -1 } }
+  ]);
+}
 
 module.exports = mongoose.model('Recipe', recipeSchema);

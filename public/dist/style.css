@@ -14,12 +14,16 @@ body {
 
 body.logged-in {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-gap: 3rem; }
+  grid-template-columns: 200px 1fr; }
   @media screen and (max-width: 600px) {
     body.logged-in {
       background-color: green;
       grid-template-columns: 1fr; } }
+
+h1 {
+  font-family: "Bree Serif";
+  text-transform: uppercase;
+  font-size: 3rem; }
 
 .form--login label {
   font-family: "Bree Serif";
@@ -124,6 +128,11 @@ body.logged-in {
 
 .nav-link--active {
   background-color: #DB36A4; }
+
+.hero {
+  padding: 6rem 3rem;
+  text-align: center;
+  color: #fff; }
 
 .app-login {
   background-image: -o-linear-gradient(305deg, #43C6AC, #db36a4), url(/images/app-login-bg-bw.jpg);

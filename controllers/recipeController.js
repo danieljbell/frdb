@@ -45,3 +45,15 @@ exports.getRecipeBySlug = async (req, res, next) => {
   if (!recipe) return next();
   res.render('recipe', { recipe, title: recipe.name });
 };
+
+exports.getRecipeByType = async (req, res) => {
+  const tag = req.params.tag;
+  const tagQuery = tag || { $exists: true, $ne: [] };
+
+  const tagsPromise = Recipe.getType();
+  const recipesPromise = Recipe.find({ tags: tagQuery });
+  const [tags, recipes] = await Promise.all([tagsPromise, recipesPromise]);
+
+
+  res.render('tag', { tags, title: 'Tags', tag, recipes });
+};

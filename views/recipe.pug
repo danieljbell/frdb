@@ -3,8 +3,9 @@ extends layout
 include mixins/_recipeForm
 
 block content
-  pre= h.dump(recipe)
-  h1= recipe.name
-  h2= recipe.description
-
-  +recipeForm(recipe)
+  section.hero(style="background-image: url('//unsplash.it/1280/400');")
+    h1= recipe.name
+    h2= recipe.description
+  
+  section
+    +recipeForm(recipe)

@@ -24,6 +24,15 @@ router.get('/recipes/new',
 router.post('/recipes/create', recipeController.createRecipe);
 router.post('/recipes/:recipe_id', recipeController.updateRecipe);
 
+router.get('/tags', 
+  authController.checkAuth,
+  catchErrors(recipeController.getRecipeByType)
+);
+router.get('/tags/:tag', 
+  authController.checkAuth,
+  catchErrors(recipeController.getRecipeByType)
+);
+
 router.get('/login', authController.loginScreen);
 router.post('/login', authController.login);
 router.get('/logout', authController.logout);
@@ -34,11 +43,11 @@ router.get('/recipes/:slug',
 );
 
 
-// router.get('/register', userController.registerForm);
-// router.post('/register', 
-//   userController.validateRegister,
-//   userController.register,
-//   authController.login
-// );
+router.get('/register', userController.registerForm);
+router.post('/register', 
+  userController.validateRegister,
+  userController.register,
+  authController.login
+);
 
 module.exports = router;

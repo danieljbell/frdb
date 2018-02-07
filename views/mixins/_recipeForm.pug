@@ -3,6 +3,11 @@ mixin recipeForm(recipe = {})
     div.form-group
       label(for="name") Recipe name
       input(type="text" name="name" id="name" value=recipe.name)
+    div.form-group
+      - const dish_type = recipe.dish_type || []
+      each type in h.dish_types
+        input(type="radio" value=`${type}` name="dish_type" checked=(dish_type.includes(type)) id=`${type}`)
+        label(for=`${type}`) #{type}
     if recipe.ingredients
       each ingredient in recipe.ingredients
         div.form-group
