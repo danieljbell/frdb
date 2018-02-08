@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/danieljbell/frdb#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.1",

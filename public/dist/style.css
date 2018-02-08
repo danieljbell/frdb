@@ -99,16 +99,12 @@ h1 {
       right: 0;
       background-image: -o-linear-gradient(315deg, #F8FFAE, #DB36A4);
       background-image: linear-gradient(135deg, #F8FFAE, #DB36A4);
-      -webkit-transform: translateX(-100%);
-          -ms-transform: translateX(-100%);
-              transform: translateX(-100%);
+      opacity: 0;
       -webkit-transition: all 200ms ease-in-out;
       -o-transition: all 200ms ease-in-out;
       transition: all 200ms ease-in-out; }
     .app-header a:hover:before {
-      -webkit-transform: translateX(0%);
-          -ms-transform: translateX(0%);
-              transform: translateX(0%); }
+      opacity: 1; }
   .app-header ul {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -133,6 +129,26 @@ h1 {
   padding: 6rem 3rem;
   text-align: center;
   color: #fff; }
+
+.add-ingredient {
+  background-color: green;
+  border-radius: 50%;
+  padding: 0.5em;
+  color: #fff;
+  line-height: 1;
+  border: 0;
+  font-family: "Bree Serif";
+  font-weight: bold; }
+
+.remove-ingredient {
+  background-color: red;
+  border-radius: 50%;
+  padding: 0.5em;
+  color: #fff;
+  line-height: 1;
+  border: 0;
+  font-family: "Bree Serif";
+  font-weight: bold; }
 
 .app-login {
   background-image: -o-linear-gradient(305deg, #43C6AC, #db36a4), url(/images/app-login-bg-bw.jpg);

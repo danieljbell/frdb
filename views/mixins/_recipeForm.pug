@@ -9,10 +9,16 @@ mixin recipeForm(recipe = {})
         input(type="radio" value=`${type}` name="dish_type" checked=(dish_type.includes(type)) id=`${type}`)
         label(for=`${type}`) #{type}
     if recipe.ingredients
-      each ingredient in recipe.ingredients
+      - let i = 0;
+      each ingredient, index in recipe.ingredients
+        - i++;
         div.form-group
-          label(for="ingredient") Ingredient
-          input(type="text" name="ingredients" id="ingredient" value=ingredient)  
+          label(for=`ingredient-${index}`) Ingredient #{number}
+          input(type="text" name="ingredients" id=`ingredient-${index}` value=ingredient)  
+          if (i > recipe.ingredients.length - 1)
+            button.add-ingredient +
+          else
+            button.remove-ingredient -
     else
       div.form-group
         label(for="ingredient") Ingredient

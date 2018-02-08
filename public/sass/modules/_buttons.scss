@@ -1,0 +1,18 @@
+@mixin ingredient-button($color) {
+  background-color: $color;
+  border-radius: 50%;
+  padding: 0.5em;
+  color: #fff;
+  line-height: 1;
+  border: 0;
+  font-family: $heading-font;
+  font-weight: bold;
+}
+
+.add-ingredient {
+  @include ingredient-button(green);
+}
+
+.remove-ingredient {
+  @include ingredient-button(red);
+}
