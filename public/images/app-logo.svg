@@ -11,12 +11,12 @@
 
       .cls-2 {
         font-size: 57px;
-        font-family: RockSalt-Regular, Rock Salt;
+        font-family: 'RockSalt-Regular', 'Rock Salt';
       }
 
       .cls-3 {
         font-size: 55px;
-        font-family: BreeSerif-Regular, Bree Serif;
+        font-family: 'BreeSerif-Regular', 'Bree Serif';
       }
 
       .cls-4 {
