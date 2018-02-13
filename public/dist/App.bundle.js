@@ -931,23 +931,57 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ingredient = document.querySelector('.add-ingredient');
-var removeIngredient = document.querySelectorAll('.remove-ingredient');
+// const ingredient = document.querySelector('.add-ingredient');
+// const removeIngredient = document.querySelectorAll('.remove-ingredient');
 
-if (ingredient) {
-  ingredient.addEventListener('click', function (e) {
-    e.preventDefault();
-    var html = '\n      <label>Ingredient</label>\n      <input type="text" name="ingredients">\n      <button class="add-ingredient">+</button>\n    ';
-    ingredient.parentElement.innerHTML += html;
+// if (ingredient) {
+//   ingredient.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     const html = `
+//       <label>Ingredient</label>
+//       <input type="text" name="ingredients">
+//       <button class="add-ingredient">+</button>
+//     `;
+//     ingredient.parentElement.innerHTML += html;
+//   });
+// }
+
+// removeIngredient.forEach((element) => {
+//   element.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     this.parentElement.remove()
+//   });
+// });
+
+
+if (document.querySelector('#form--recipe-edit')) {
+  new Vue({
+    el: '#form--recipe-edit',
+    data: {
+      title: ''
+    },
+    computed: {
+      getTitle: function getTitle() {
+        return 'cool man || ' + title;
+      }
+    }
   });
 }
 
-removeIngredient.forEach(function (element) {
-  element.addEventListener('click', function (e) {
-    e.preventDefault();
-    this.parentElement.remove();
+if (document.querySelector('#form--recipe-add')) {
+  new Vue({
+    el: '#form--recipe-add',
+    data: {
+      title: 'Add your recipe title',
+      ingredients: ['Add your ingredients']
+    },
+    computed: {
+      allIngredients: function allIngredients() {
+        return ingredients;
+      }
+    }
   });
-});
+}
 
 /***/ }),
 /* 9 */

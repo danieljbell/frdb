@@ -2,11 +2,11 @@ mixin recipeForm(recipe = {})
   form.form--recipe(action=`/recipes/${recipe._id || 'create'}` method="POST")
     div.form-group
       label(for="name") Recipe name
-      input(type="text" name="name" id="name" value=recipe.name)
+      input(type="text" name="name" id="name" value=recipe.name v-model="title")
     div.form-group
       - const dish_type = recipe.dish_type || []
       each type in h.dish_types
-        input(type="radio" value=`${type}` name="dish_type" checked=(dish_type.includes(type)) id=`${type}`)
+        input(type="checkbox" value=`${type}` name="dish_type" checked=(dish_type.includes(type)) id=`${type}`)
         label(for=`${type}`) #{type}
     if recipe.ingredients
       - let i = 0;
@@ -20,7 +20,8 @@ mixin recipeForm(recipe = {})
           else
             button.remove-ingredient -
     else
-      div.form-group
+      div.form-group(v-for="ingredient in allIngredients")
         label(for="ingredient") Ingredient
-        input(type="text" name="ingredients" id="ingredient" value=ingredient)          
+        input(type="text" name="ingredients" id="ingredient" value=ingredient)
+        button.add-ingredient(v-on:click="newIngredient") +
     input(type="submit" value="Add Recipe to Database")

@@ -1,9 +1,14 @@
 extends layout
 
+include mixins/_recipeForm
+
 block content
+  
+  #form--recipe-add
 
-  h1= title
-
-  include mixins/_recipeForm
-
-  +recipeForm()
+    section.hero.hero--recipe(style="background-image: url('//unsplash.it/1280/400');")
+      h1 {{title}}
+      h2 recipe.description
+    
+    section.recipe-content
+      +recipeForm(recipe)

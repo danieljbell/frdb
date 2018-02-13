@@ -19,13 +19,16 @@ body.single-recipe {
   @media screen and (max-width: 600px) {
     body.home,
     body.single-recipe {
-      background-color: green;
       grid-template-columns: 1fr; } }
 
 h1 {
   font-family: "Bree Serif";
   text-transform: uppercase;
   font-size: 3rem; }
+
+input {
+  font-family: "Dosis";
+  font-size: 1rem; }
 
 .form--login label {
   font-family: "Bree Serif";
@@ -79,7 +82,7 @@ h1 {
 .form--recipe input[type="text"] {
   width: 100%; }
 
-.form--recipe input[type="radio"] {
+.form--recipe input[type="checkbox"] {
   margin-right: 0.5em;
   margin-left: 0.5em; }
 
@@ -192,15 +195,15 @@ h1 {
 
 .flash-messages {
   position: absolute;
-  bottom: 2rem;
+  top: 2rem;
   right: 2rem; }
 
 .flash {
-  padding: 1rem;
-  position: relative;
-  background-color: #fff;
-  border-radius: 6px;
-  font-weight: bold; }
+  -webkit-animation-name: wiggle;
+          animation-name: wiggle;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
+  position: relative; }
   .flash:after {
     content: '';
     position: absolute;
@@ -213,10 +216,63 @@ h1 {
     -webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); }
 
+.flash__text {
+  background-color: #fff;
+  padding: 1rem;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 6px; }
+
+.flash__remove {
+  position: absolute;
+  top: -1.25rem;
+  right: 0;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: 0;
+  background-image: -o-linear-gradient(315deg, red, blue);
+  background-image: linear-gradient(135deg, red, blue);
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  line-height: 0.3rem; }
+
 .flash--success:after {
   background-color: #F8FFAE;
   background-image: -o-linear-gradient(315deg, #43C6AC, #F8FFAE);
   background-image: linear-gradient(135deg, #43C6AC, #F8FFAE); }
+
+@-webkit-keyframes wiggle {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  10%,
+  50%,
+  90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0); }
+  40%,
+  80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+            transform: translate3d(10px, 0, 0); } }
+
+@keyframes wiggle {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  10%,
+  50%,
+  90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0); }
+  40%,
+  80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+            transform: translate3d(10px, 0, 0); } }
 
 .recipe-filters--list {
   list-style-type: none;
@@ -269,6 +325,13 @@ h1 {
   border-radius: 10px;
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); }
+
+.recipe-list {
+  list-style-type: none;
+  padding: 2rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem; }
 
 .recipe-content {
   padding: 3rem;

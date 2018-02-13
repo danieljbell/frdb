@@ -20,7 +20,7 @@ const recipeSchema = new mongoose.Schema({
     required: 'You have to be logged in'
   },
   dish_type: {
-    type: String,
+    type: [String],
     required: true
   },
   ingredients: [String]

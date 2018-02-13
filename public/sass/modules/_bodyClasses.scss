@@ -4,7 +4,6 @@ body.single-recipe {
   grid-template-columns: 200px 1fr;
   // grid-gap: 3rem;
   @include mobile {
-    background-color: green;
     grid-template-columns: 1fr;
   }
 }

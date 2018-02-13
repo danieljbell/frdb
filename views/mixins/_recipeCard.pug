@@ -1,0 +1,6 @@
+mixin recipeForm(recipe = {})
+  li.recipe-card
+    a(href=`/recipes/${recipe.slug}`) #{recipe.name}
+    ul
+      each type in recipe.dish_type
+        li #{type}

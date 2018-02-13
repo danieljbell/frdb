@@ -1,17 +1,20 @@
 extends layout
 
+include mixins/_recipeCard
+
 block content
 
   section.hero.hero--dashboard
-    h1 Hey There, #{user.name}!
+    if user
+      h1 Hey There, #{user.name}!
 
   section.recipe-filters
     ul.recipe-filters--list
       li.recipe-filters--item All Recipes
       each type in h.dish_types
-        li.recipe-filters--item #{type}
+        li.recipe-filters--item 
+          a(href="#0") #{type}
 
   ul.recipe-list
     each recipe in recipes
-      li
-        a(href=`/recipes/${recipe.slug}`) #{recipe.name}
+      +recipeForm(recipe)
