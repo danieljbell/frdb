@@ -2,7 +2,14 @@ extends layout
 
 block content
 
-  h1= title 
+  section.hero.hero--dashboard
+    h1 Hey There, #{user.name}!
+
+  section.recipe-filters
+    ul.recipe-filters--list
+      li.recipe-filters--item All Recipes
+      each type in h.dish_types
+        li.recipe-filters--item #{type}
 
   ul.recipe-list
     each recipe in recipes

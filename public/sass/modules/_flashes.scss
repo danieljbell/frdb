@@ -1,0 +1,31 @@
+.flash-messages {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.flash {
+  padding: 1rem;
+  position: relative;
+  background-color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  &:after {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    bottom: -0.5rem;
+    left: -0.5rem; 
+    z-index: -1;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px rgba(black, 0.1);
+  }
+}
+
+.flash--success {
+  &:after {
+    background-color: $brand-light;
+    background-image: linear-gradient(135deg, $brand, $brand-light);
+  }
+}

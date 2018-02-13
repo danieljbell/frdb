@@ -1,0 +1,20 @@
+.recipe-filters--list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+  background-color: #EFEFEF;
+}
+
+.recipe-filters--item {
+  padding: 0.5rem 3rem;
+  font-family: $heading-font;
+  text-transform: uppercase;
+  border-left: 1px solid #ccc;
+
+  &:last-child {
+    border-right: 1px solid #ccc;    
+  }
+
+}

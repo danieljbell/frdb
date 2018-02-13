@@ -5,10 +5,8 @@ html
     link(href="https://fonts.googleapis.com/css?family=Bree+Serif|Dosis" rel="stylesheet")
     link(rel='stylesheet', href='/dist/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
-  //- if !user
-  //-   body(class="")
-  //- else
-  body(class=`logged-in ${body_class || ''}`)
+
+  include logic/_bodyClass
 
 
   block header

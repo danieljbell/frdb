@@ -1,0 +1,7 @@
+if currentPath === '/'
+  body(class=`${body_class || ''} home`)
+
+else if currentPath.startsWith('/recipes/')
+  body(class=`${body_class || ''} single-recipe`)
+else
+  body(class=`${body_class || ''} asdfsa`)
