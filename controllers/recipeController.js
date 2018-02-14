@@ -47,14 +47,14 @@ exports.getRecipeBySlug = async (req, res, next) => {
 };
 
 exports.getRecipeByType = async (req, res) => {
-  const tag = req.params.tag;
+  let tag = req.params.tag;
+  tag = tag.charAt(0).toUpperCase() + tag.slice(1);
   const tagQuery = tag || { $exists: true, $ne: [] };
 
   const tagsPromise = Recipe.getType();
   const recipesPromise = Recipe.find({ dish_type: tagQuery });
   const [tags, recipes] = await Promise.all([tagsPromise, recipesPromise]);
 
-  // res.json(req.params.tag);
   res.render('index', { tags, title: 'Tags', tag, recipes });
 };
 
