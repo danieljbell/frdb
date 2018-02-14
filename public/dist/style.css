@@ -12,13 +12,18 @@ body {
   font-family: "Dosis", Helvetica, Arial, sans-serif;
   color: #555555; }
 
+img {
+  width: 100%; }
+
 body.home,
-body.single-recipe {
+body.single-recipe,
+body.archive-tag {
   display: grid;
   grid-template-columns: 200px 1fr; }
   @media screen and (max-width: 600px) {
     body.home,
-    body.single-recipe {
+    body.single-recipe,
+    body.archive-tag {
       grid-template-columns: 1fr; } }
 
 h1 {
@@ -164,7 +169,8 @@ input {
   padding: 1.5rem; }
 
 .nav-link--active {
-  background-color: #DB36A4; }
+  background-color: #DB36A4;
+  color: #fff; }
 
 .hero {
   padding: 6rem 3rem; }
@@ -287,12 +293,27 @@ input {
   background-color: #EFEFEF; }
 
 .recipe-filters--item {
-  padding: 0.5rem 3rem;
   font-family: "Bree Serif";
   text-transform: uppercase;
   border-left: 1px solid #ccc; }
   .recipe-filters--item:last-child {
     border-right: 1px solid #ccc; }
+
+.recipe-filters--link {
+  display: inline-block;
+  padding: 0.5rem 3rem;
+  text-decoration: none; }
+
+.recipe-card {
+  border: 1px solid #d5d5d5;
+  padding: 1rem; }
+
+.recipe-card--photo {
+  display: block;
+  position: relative;
+  left: -1rem;
+  top: -1rem;
+  width: calc(100% + 2rem); }
 
 .app-login {
   background-image: -o-linear-gradient(305deg, #43C6AC, #db36a4), url(/images/app-login-bg-bw.jpg);
@@ -330,7 +351,7 @@ input {
   list-style-type: none;
   padding: 2rem 4rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 2rem; }
 
 .recipe-content {

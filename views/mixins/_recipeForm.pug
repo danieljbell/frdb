@@ -6,8 +6,8 @@ mixin recipeForm(recipe = {})
     div.form-group
       - const dish_type = recipe.dish_type || []
       each type in h.dish_types
-        input(type="checkbox" value=`${type}` name="dish_type" checked=(dish_type.includes(type)) id=`${type}`)
-        label(for=`${type}`) #{type}
+        input(type="checkbox" value=`${type.title}` name="dish_type" checked=(dish_type.includes(type.title)) id=`${type.title}`)
+        label(for=`${type.title}`) #{type.title}
     if recipe.ingredients
       - let i = 0;
       each ingredient, index in recipe.ingredients

@@ -12,3 +12,8 @@ body {
   font-family: $body-font, Helvetica, Arial, sans-serif;
   color: $body-text-color;
 }
+
+img {
+  // display: block;
+  width: 100%;
+}

@@ -37,8 +37,8 @@ recipeSchema.pre('save', function(next) {
 
 recipeSchema.statics.getType = function() {
   return this.aggregate([
-    { $unwind: '$tags' },
-    { $group: { _id: '$tags', count: { $sum: 1 } } },
+    { $unwind: '$dish_type' },
+    { $group: { _id: '$dish_type', count: { $sum: 1 } } },
     { $sort: { count: -1 } }
   ]);
 }

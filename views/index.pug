@@ -3,17 +3,18 @@ extends layout
 include mixins/_recipeCard
 
 block content
-
+  
   section.hero.hero--dashboard
     if user
       h1 Hey There, #{user.name}!
 
   section.recipe-filters
     ul.recipe-filters--list
-      li.recipe-filters--item All Recipes
+      li.recipe-filters--item
+        a(href="/" class=(currentPath === '/' ? 'nav-link--active recipe-filters--link' : 'recipe-filters--link')) All Recipes
       each type in h.dish_types
         li.recipe-filters--item 
-          a(href="#0") #{type}
+          a(href=`/tags/${type.title}` class=(currentPath.startsWith(type.slug) ? 'nav-link--active recipe-filters--link' : 'recipe-filters--link')) #{type.title}
 
   ul.recipe-list
     each recipe in recipes

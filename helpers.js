@@ -15,4 +15,25 @@ exports.menu = [
   },
 ];
 
-exports.dish_types = ['Appetizer', 'Breakfast', 'Lunch', 'Dinner', 'Dessert'];
+exports.dish_types = [
+  {
+    title: 'Appetizer',
+    slug: '/tags/Appetizer'
+  },
+  {
+    title: 'Breakfast',
+    slug: '/tags/Breakfast'
+  },
+  {
+    title: 'Lunch',
+    slug: '/tags/Lunch'
+  },
+  {
+    title: 'Dinner',
+    slug: '/tags/Dinner'
+  },
+  {
+    title: 'Dessert',
+    slug: '/tags/Dessert'
+  }
+];
