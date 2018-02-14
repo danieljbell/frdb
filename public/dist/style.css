@@ -15,15 +15,11 @@ body {
 img {
   width: 100%; }
 
-body.home,
-body.single-recipe,
-body.archive-tag {
+body {
   display: grid;
   grid-template-columns: 200px 1fr; }
   @media screen and (max-width: 600px) {
-    body.home,
-    body.single-recipe,
-    body.archive-tag {
+    body {
       grid-template-columns: 1fr; } }
 
 h1 {
@@ -209,7 +205,8 @@ input {
           animation-name: wiggle;
   -webkit-animation-duration: 400ms;
           animation-duration: 400ms;
-  position: relative; }
+  position: relative;
+  z-index: 1; }
   .flash:after {
     content: '';
     position: absolute;
@@ -346,6 +343,36 @@ input {
   border-radius: 10px;
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); }
+
+.error-404 {
+  background-image: -o-linear-gradient(305deg, #43C6AC, #db36a4), url(/images/app-login-bg-bw.jpg);
+  background-image: linear-gradient(145deg, #43C6AC, #db36a4), url(/images/app-login-bg-bw.jpg);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.app-error-container {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  overflow: scroll; }
 
 .recipe-list {
   list-style-type: none;

@@ -1,27 +1,37 @@
 mixin recipeForm(recipe = {})
-  form.form--recipe(action=`/recipes/${recipe._id || 'create'}` method="POST")
+  form.form--recipe(action=`/recipes/${recipe._id || 'create'}` method="POST" enctype="multipart/form-data")
+    
     div.form-group
       label(for="name") Recipe name
-      input(type="text" name="name" id="name" value=recipe.name v-model="title")
+      input(type="text" name="name" id="name" value=recipe.name)
+    
     div.form-group
       - const dish_type = recipe.dish_type || []
       each type in h.dish_types
         input(type="checkbox" value=`${type.title}` name="dish_type" checked=(dish_type.includes(type.title)) id=`${type.title}`)
         label(for=`${type.title}`) #{type.title}
-    if recipe.ingredients
-      - let i = 0;
-      each ingredient, index in recipe.ingredients
-        - i++;
-        div.form-group
-          label(for=`ingredient-${index}`) Ingredient #{number}
-          input(type="text" name="ingredients" id=`ingredient-${index}` value=ingredient)  
-          if (i > recipe.ingredients.length - 1)
+
+    div.form-group
+      label(for="photo")
+      input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+      if recipe.photo
+        img(src=`/uploads/${recipe.photo}`, alt=recipe.name )
+    
+    div.ingredients-list    
+      if recipe.ingredients
+        - let i = 0;
+        each ingredient, index in recipe.ingredients
+          - i++;
+          div.form-group
+            label(for=`ingredient-${index}`) Ingredient #{number}
+            input(type="text" name="ingredients" id=`ingredient-${index}` value=ingredient)  
             button.add-ingredient +
-          else
             button.remove-ingredient -
-    else
-      div.form-group(v-for="ingredient in allIngredients")
-        label(for="ingredient") Ingredient
-        input(type="text" name="ingredients" id="ingredient" value=ingredient)
-        button.add-ingredient(v-on:click="newIngredient") +
+      else
+        div.form-group
+          label(for="ingredient") Ingredient
+          input(type="text" name="ingredients" id="ingredient" value=ingredient)
+          button.add-ingredient +
+          button.remove-ingredient -
+    
     input(type="submit" value="Add Recipe to Database")

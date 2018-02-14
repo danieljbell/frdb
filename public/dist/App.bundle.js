@@ -931,57 +931,38 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const ingredient = document.querySelector('.add-ingredient');
-// const removeIngredient = document.querySelectorAll('.remove-ingredient');
+document.addEventListener('click', function (e) {
 
-// if (ingredient) {
-//   ingredient.addEventListener('click', function(e) {
-//     e.preventDefault();
-//     const html = `
-//       <label>Ingredient</label>
-//       <input type="text" name="ingredients">
-//       <button class="add-ingredient">+</button>
-//     `;
-//     ingredient.parentElement.innerHTML += html;
-//   });
-// }
+  // Adding ingredient to a recipe
+  if (e.target.matches('.add-ingredient')) {
+    e.preventDefault();
+    var input = e.target.parentElement.innerHTML;
+    var html = document.createElement('div');
+    html.classList.add('form-group');
+    html.innerHTML = input;
+    html.querySelector('input').value = null;
+    var ingredientsList = document.querySelector('.ingredients-list');
+    ingredientsList.appendChild(html);
+  }
 
-// removeIngredient.forEach((element) => {
-//   element.addEventListener('click', function(e) {
-//     e.preventDefault();
-//     this.parentElement.remove()
-//   });
-// });
+  // Remove ingredient from recipe
+  if (e.target.matches('.remove-ingredient')) {
+    e.preventDefault();
+    e.target.parentElement.remove();
+  }
+}, false);
 
+document.addEventListener('submit', function (e) {
 
-if (document.querySelector('#form--recipe-edit')) {
-  new Vue({
-    el: '#form--recipe-edit',
-    data: {
-      title: ''
-    },
-    computed: {
-      getTitle: function getTitle() {
-        return 'cool man || ' + title;
-      }
-    }
-  });
-}
+  // if (e.target.matches('.form--recipe')) {
+  //   e.preventDefault();
+  //   console.log('trying to update dat recipe?!');
+  //   setTimeout(function() {
+  //     e.target.submit();
+  //   }, 3000);
+  // }
 
-if (document.querySelector('#form--recipe-add')) {
-  new Vue({
-    el: '#form--recipe-add',
-    data: {
-      title: 'Add your recipe title',
-      ingredients: ['Add your ingredients']
-    },
-    computed: {
-      allIngredients: function allIngredients() {
-        return ingredients;
-      }
-    }
-  });
-}
+});
 
 /***/ }),
 /* 9 */

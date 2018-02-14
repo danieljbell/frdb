@@ -50,3 +50,9 @@ exports.register = (req, res, next) => {
   })
   next(); // pass to authController.login
 };
+
+exports.createUser = (req, res, next) => {
+  res.render('register', {
+    title: 'Register'
+  });
+}

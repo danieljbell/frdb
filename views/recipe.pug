@@ -1,14 +1,16 @@
 extends layout
 
 include mixins/_recipeForm
+include mixins/_displayRecipe
 
 block content
 
-  #form--recipe-edit
-
-    section.hero.hero--recipe(style="background-image: url('//unsplash.it/1280/400');")
-      h1 {{title}}
-      h2= recipe.description
+    section.hero.hero--recipe(style=`background-image: url('/uploads/${recipe.photo || 'default.png'}');`)
+      h1 #{recipe.name}
+      h2 #{recipe.description}
     
     section.recipe-content
-      +recipeForm(recipe)
+      if recipe.author.equals(user._id)
+        +recipeForm(recipe)
+      else
+        +displayRecipe(recipe)

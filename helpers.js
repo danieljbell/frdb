@@ -18,22 +18,22 @@ exports.menu = [
 exports.dish_types = [
   {
     title: 'Appetizer',
-    slug: '/tags/Appetizer'
+    slug: '/tags/appetizer'
   },
   {
     title: 'Breakfast',
-    slug: '/tags/Breakfast'
+    slug: '/tags/breakfast'
   },
   {
     title: 'Lunch',
-    slug: '/tags/Lunch'
+    slug: '/tags/lunch'
   },
   {
     title: 'Dinner',
-    slug: '/tags/Dinner'
+    slug: '/tags/dinner'
   },
   {
     title: 'Dessert',
-    slug: '/tags/Dessert'
+    slug: '/tags/dessert'
   }
 ];

@@ -23,7 +23,11 @@ const recipeSchema = new mongoose.Schema({
     type: [String],
     required: true
   },
-  ingredients: [String]
+  ingredients: {
+    type: [String],
+    trim: true
+  },
+  photo: String
 });
 
 recipeSchema.pre('save', function(next) {

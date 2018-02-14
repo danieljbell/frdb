@@ -1,7 +1,7 @@
 mixin recipeForm(recipe = {})
   li.recipe-card
     a(href=`/recipes/${recipe.slug}`)
-      img.recipe-card--photo(src=`${recipe.photo || 'http://fillmurray.com/400/175'}`)
+      img.recipe-card--photo(src=`/uploads/${recipe.photo || 'default.png'}`)
       p #{recipe.name}
       //- ul
       //-   each type in recipe.dish_type

@@ -3,6 +3,6 @@ if currentPath === '/'
 else if currentPath.startsWith('/recipes/')
   body(class=`${body_class || ''} single-recipe`)
 else if currentPath.startsWith('/tags')
-  body(class=`${body_class || ''} archive-tag`)    
+  body(class=`${body_class || ''} archive-tag`)
 else
-  body(class=`${body_class || ''} asdfsa`)
+  body(class=`${body_class || ''}`)

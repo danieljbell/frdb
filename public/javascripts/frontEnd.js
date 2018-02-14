@@ -1,54 +1,36 @@
 import '../sass/style.scss';
 import axios from 'axios';
 
-// const ingredient = document.querySelector('.add-ingredient');
-// const removeIngredient = document.querySelectorAll('.remove-ingredient');
+document.addEventListener('click', function(e) {
+  
+  // Adding ingredient to a recipe
+  if (e.target.matches('.add-ingredient')) {
+    e.preventDefault();
+    const input = e.target.parentElement.innerHTML;
+    let html = document.createElement('div');
+    html.classList.add('form-group');
+    html.innerHTML = input;
+    html.querySelector('input').value = null;
+    const ingredientsList = document.querySelector('.ingredients-list');
+    ingredientsList.appendChild(html);
+  }
 
-// if (ingredient) {
-//   ingredient.addEventListener('click', function(e) {
-//     e.preventDefault();
-//     const html = `
-//       <label>Ingredient</label>
-//       <input type="text" name="ingredients">
-//       <button class="add-ingredient">+</button>
-//     `;
-//     ingredient.parentElement.innerHTML += html;
-//   });
-// }
+  // Remove ingredient from recipe
+  if (e.target.matches('.remove-ingredient')) {
+    e.preventDefault();
+    e.target.parentElement.remove();
+  }
 
-// removeIngredient.forEach((element) => {
-//   element.addEventListener('click', function(e) {
-//     e.preventDefault();
-//     this.parentElement.remove()
-//   });
-// });
+}, false);
 
+document.addEventListener('submit', function(e) {
+  
+  // if (e.target.matches('.form--recipe')) {
+  //   e.preventDefault();
+  //   console.log('trying to update dat recipe?!');
+  //   setTimeout(function() {
+  //     e.target.submit();
+  //   }, 3000);
+  // }
 
-if (document.querySelector('#form--recipe-edit')) {
-  new Vue({
-    el: '#form--recipe-edit',
-    data: {
-      title: ''
-    },
-    computed: {
-      getTitle: function() {
-        return `cool man || ${title}`
-      }
-    }
-  });
-}
-
-if (document.querySelector('#form--recipe-add')) {
-  new Vue({
-    el: '#form--recipe-add',
-    data: {
-      title: 'Add your recipe title',
-      ingredients: ['Add your ingredients']
-    },
-    computed: {
-      allIngredients() {
-        return ingredients
-      }
-    }
-  });
-}
+});
