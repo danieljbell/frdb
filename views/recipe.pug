@@ -2,15 +2,20 @@ extends layout
 
 include mixins/_recipeForm
 include mixins/_displayRecipe
+include mixins/_commentForm
 
 block content
 
-    section.hero.hero--recipe(style=`background-image: url('/uploads/${recipe.photo || 'default.png'}');`)
-      h1 #{recipe.name}
-      h2 #{recipe.description}
-    
-    section.recipe-content
-      if recipe.author.equals(user._id)
-        +recipeForm(recipe)
-      else
-        +displayRecipe(recipe)
+  section.hero.hero--recipe(style=`background-image: url('/uploads/${recipe.photo || 'default.png'}');`)
+    h1 #{recipe.name}
+    h2 #{recipe.description}
+  
+  section.recipe-content
+    if recipe.author.equals(user._id)
+      a(href=`/recipes/remove/${recipe._id}`) Remove Recipe
+      +recipeForm(recipe)
+    else
+      +displayRecipe(recipe)
+
+  section.recipe-comments
+    +commentForm(recipe)

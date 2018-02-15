@@ -16,6 +16,9 @@ block content
         li.recipe-filters--item 
           a(href=`/tags/${type.title.toLowerCase()}` class=(currentPath.startsWith(type.slug) ? 'nav-link--active recipe-filters--link' : 'recipe-filters--link')) #{type.title}
 
-  ul.recipe-list
-    each recipe in recipes
-      +recipeForm(recipe)
+  if recipes.length > 0
+    ul.recipe-list
+      each recipe in recipes
+        +recipeForm(recipe)
+  else
+    p get to adding bro!

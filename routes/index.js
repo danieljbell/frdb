@@ -26,6 +26,12 @@ router.post('/recipes/create',
   catchErrors(recipeController.resize),
   catchErrors(recipeController.createRecipe)
 );
+
+router.get('/recipes/remove/:recipe_id', 
+  authController.checkAuth,
+  catchErrors(recipeController.removeRecipe)
+);
+
 router.post('/recipes/:recipe_id', 
   recipeController.upload,
   catchErrors(recipeController.resize),

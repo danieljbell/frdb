@@ -37,6 +37,14 @@ exports.addRecipe = (req, res) => {
   });
 }
 
+exports.removeRecipe = async (req, res) => {
+  const recipe = await Recipe.findOne({ _id: req.params.recipe_id });
+  confirmOwner(recipe, req.user);
+  await recipe.remove();
+  req.flash('success', 'Recipe has been deleted');
+  res.redirect('/');
+}
+
 exports.createRecipe = async (req, res) => {
   req.body.author = req.user._id;
   const recipe = new Recipe(req.body);
