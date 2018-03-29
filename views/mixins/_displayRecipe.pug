@@ -1,3 +1,4 @@
 mixin displayRecipe(recipe = {})
+  ul.ingredients-list
   each ingredient, index in recipe.ingredients
-    p #{ingredient}
+    li <span>#{ingredient.measurement} #{ingredient.unit}</span> #{ingredient.name}

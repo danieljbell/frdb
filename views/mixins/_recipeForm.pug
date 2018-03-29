@@ -15,22 +15,32 @@ mixin recipeForm(recipe = {})
       label(for="photo")
       input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
       if recipe.photo
-        img(src=`/uploads/${recipe.photo}`, alt=recipe.name )
+        img(src=`/uploads/${recipe.photo}`, alt=recipe.name)
     
     div.ingredients-list    
-      if recipe.ingredients
+      if recipe.ingredients  
         - let i = 0;
         each ingredient, index in recipe.ingredients
           - i++;
-          div.form-group
-            label(for=`ingredient-${index}`) Ingredient #{number}
-            input(type="text" name="ingredients" id=`ingredient-${index}` value=ingredient)  
+          div.form-group(data-index=`${index}`)
+            label(for=`ingredient[${index}][name]`) Ingredient
+            input(type="number" name=`ingredients[${index}][measurement]` value=ingredient.measurement)
+            select(name=`ingredients[${index}][unit]` value=ingredient.unit)
+              - const measurement = ['Tbs', 'tbs', 'oz', 'cup'];
+              each type in measurement
+                option(value=`${type}` selected=(type === ingredient.unit)) #{type}
+            input(type="text" name=`ingredients[${index}][name]` id="ingredient[${index}][name]" value=ingredient.name)
             button.add-ingredient +
             button.remove-ingredient -
-      else
-        div.form-group
-          label(for="ingredient") Ingredient
-          input(type="text" name="ingredients" id="ingredient" value=ingredient)
+      else            
+        div.form-group(data-index="0")
+          label(for="ingredient[0][name]") Ingredient
+          input(type="number" name="ingredients[0][measurement]")
+          select(name="ingredients[0][unit]")
+            - const measurement = ['Tbs', 'tbs', 'oz', 'cup'];
+            each type in measurement
+              option(value=`${type}`) #{type}
+          input(type="text" name="ingredients[0][name]" id="ingredient[0][name]" value=ingredient_name)
           button.add-ingredient +
           button.remove-ingredient -
     

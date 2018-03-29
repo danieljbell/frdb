@@ -7,9 +7,16 @@ document.addEventListener('click', function(e) {
   if (e.target.matches('.add-ingredient')) {
     e.preventDefault();
     const input = e.target.parentElement.innerHTML;
+    let currentIndex = parseInt(e.target.parentElement.getAttribute('data-index'));
+    // console.log(currentIndex + 1);
     let html = document.createElement('div');
     html.classList.add('form-group');
+    html.setAttribute('data-index', currentIndex + 1);
     html.innerHTML = input;
+    html.querySelector('label').for = `ingredient[${currentIndex + 1}][name]`;
+    html.querySelector('input').name = `ingredients[${currentIndex + 1}][measurement]`;
+    html.querySelector('select').name = `ingredients[${currentIndex + 1}][unit]`;
+    html.querySelector('input[name*="name"]').name = `ingredients[${currentIndex + 1}][name]`;
     html.querySelector('input').value = null;
     const ingredientsList = document.querySelector('.ingredients-list');
     ingredientsList.appendChild(html);

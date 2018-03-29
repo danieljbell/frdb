@@ -48,6 +48,7 @@ exports.removeRecipe = async (req, res) => {
 exports.createRecipe = async (req, res) => {
   req.body.author = req.user._id;
   const recipe = new Recipe(req.body);
+  // console.log(recipe);
   await recipe.save();
   req.flash('success', 'Recipe has been created!');
   res.redirect('/');
