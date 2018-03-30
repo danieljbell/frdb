@@ -31,6 +31,10 @@ input {
   font-family: "Dosis";
   font-size: 1rem; }
 
+textarea {
+  width: 100%;
+  border: 1px solid #ccc; }
+
 .form--login label {
   font-family: "Bree Serif";
   display: block;
@@ -385,6 +389,43 @@ input {
   padding: 3rem;
   margin: 0 auto;
   max-width: 600px; }
+
+.step-list {
+  counter-reset: step;
+  list-style-type: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .step-list li {
+    counter-increment: step;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    margin-bottom: 1rem; }
+    .step-list li:before {
+      content: counter(step);
+      position: absolute;
+      right: calc(100% + 1rem);
+      background-image: -o-linear-gradient(285deg, #F8FFAE, #43C6AC);
+      background-image: linear-gradient(165deg, #F8FFAE, #43C6AC);
+      color: #fff;
+      padding: 1em;
+      font-weight: bold;
+      border-radius: 50%;
+      font-size: 1rem;
+      line-height: 0.4rem;
+      max-height: 0.4rem;
+      max-width: 0.4rem;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); }
 
 .has-text-center {
   text-align: center; }

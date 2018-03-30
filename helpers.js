@@ -6,8 +6,12 @@ exports.menu = [
     title: 'Add Recipe' 
   },
   { 
-    slug: '/members/new',
+    slug: '/register',
     title: 'Add Family Member' 
+  },
+  {
+    slug: '/profile',
+    title: 'My Profile'
   },
   {
     slug: '/logout',

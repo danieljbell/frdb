@@ -86,6 +86,7 @@ exports.updateRecipe = async (req, res) => {
 
 
 exports.getRecipes = async (req, res) => {
+  // console.log(user);
   const recipes = await Recipe.find();
   res.render('index', {
     title: 'Recipes',

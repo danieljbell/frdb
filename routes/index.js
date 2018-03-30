@@ -56,17 +56,20 @@ router.get('/recipes/:slug',
   catchErrors(recipeController.getRecipeBySlug)
 );
 
-router.get('/members/new',
-  authController.checkAuth,
-  userController.createUser
-);
-
-
 router.get('/register', userController.registerForm);
 router.post('/register', 
   userController.validateRegister,
   userController.register,
   authController.login
+);
+
+router.get('/profile', 
+  authController.checkAuth,
+  userController.editProfile
+);
+
+router.post('/profile',
+  catchErrors(userController.updateProfile)
 );
 
 module.exports = router;

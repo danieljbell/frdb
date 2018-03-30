@@ -30,6 +30,7 @@ const recipeSchema = new mongoose.Schema({
       unit: String
     }
   ],
+  steps: [String],
   photo: String
 });
 

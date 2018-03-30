@@ -15,8 +15,10 @@ exports.registerForm = (req, res) => {
 };
 
 exports.validateRegister = (req, res, next) => {
-  req.sanitizeBody('name');
-  req.checkBody('name', 'Please enter your name').notEmpty();
+  req.sanitizeBody('first_name');
+  req.checkBody('first_name', 'Please enter your first name').notEmpty();
+  req.sanitizeBody('last_name');
+  req.checkBody('last_name', 'Please enter your last name').notEmpty();
   req.checkBody('email', 'Please enter an email address').isEmail();
   req.sanitizeBody('email').normalizeEmail({
     remove_dots: false,
@@ -43,7 +45,11 @@ exports.validateRegister = (req, res, next) => {
 };
 
 exports.register = (req, res, next) => {
-  const user = new User({ email: req.body.email, name: req.body.name });
+  const user = new User({ 
+    email: req.body.email, 
+    first_name: req.body.first_name,
+    last_name: req.body.last_name 
+  });
   // const register = promisify(User.register, User);
   User.register(user, req.body.password, function(err, user) {
     console.log('error!');
@@ -55,4 +61,24 @@ exports.createUser = (req, res, next) => {
   res.render('register', {
     title: 'Register'
   });
+};
+
+exports.editProfile = (req, res, next) => {
+  res.render('editProfile', {
+    title: 'Edit My Profile'
+  });
+};
+
+exports.updateProfile = async (req, res) => {
+  const user = await User.findOneAndUpdate(
+  {
+    _id: req.body.user_id
+  },
+  req.body,
+  {
+    new: true,
+    runValidators: true
+  }).exec();
+  req.flash('success', `You successfully updated your profile!`);
+  res.redirect(`/profile`);
 }

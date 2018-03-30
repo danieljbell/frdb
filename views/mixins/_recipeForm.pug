@@ -19,9 +19,7 @@ mixin recipeForm(recipe = {})
     
     div.ingredients-list    
       if recipe.ingredients  
-        - let i = 0;
         each ingredient, index in recipe.ingredients
-          - i++;
           div.form-group(data-index=`${index}`)
             label(for=`ingredient[${index}][name]`) Ingredient
             input(type="number" name=`ingredients[${index}][measurement]` value=ingredient.measurement)
@@ -41,6 +39,13 @@ mixin recipeForm(recipe = {})
             each type in measurement
               option(value=`${type}`) #{type}
           input(type="text" name="ingredients[0][name]" id="ingredient[0][name]" value=ingredient_name)
+          button.add-ingredient +
+          button.remove-ingredient -
+    h2 Steps
+    ul.form-group.step-list(data-index="0")
+      each step in recipe.steps
+        li.step-item
+          textarea(name="steps", rows="5")= step
           button.add-ingredient +
           button.remove-ingredient -
     

@@ -15,9 +15,14 @@ const userSchema = new Schema({
     validate: [validator.isEmail, 'Invalid Email Address'],
     required: 'Please enter an email address'
   },
-  name: {
+  first_name: {
     type: String,
-    required: 'Please enter your name',
+    required: 'Please enter your first name',
+    trim: true
+  },
+  last_name: {
+    type: String,
+    required: 'Please enter your last name',
     trim: true
   }
 });

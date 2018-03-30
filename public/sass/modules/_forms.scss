@@ -3,6 +3,11 @@ input {
   font-size: 1rem;
 }
 
+textarea {
+  width: 100%;
+  border: 1px solid $medium-gray;
+}
+
 .form--login {
   label {
     font-family: $heading-font;

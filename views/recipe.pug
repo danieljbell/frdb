@@ -15,7 +15,8 @@ block content
     if recipe.author.equals(user._id)
       a(href=`/recipes/remove/${recipe._id}`) Remove Recipe
     
-    +displayRecipe(recipe)
+    //- +displayRecipe(recipe)
+    +recipeForm(recipe)
 
   section.recipe-comments
     +commentForm(recipe)
